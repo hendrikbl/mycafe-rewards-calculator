@@ -1,4 +1,4 @@
-# mycafe-calculator
+# mycafe-rewards-calculator
 
 ## Build Setup
 

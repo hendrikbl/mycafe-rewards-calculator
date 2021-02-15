@@ -9,6 +9,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    fontFamily: {
+      sans: ['Nunito', 'Arial', 'sans-serif'],
+    },
   },
   variants: {
     extend: {},
