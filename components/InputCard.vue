@@ -17,7 +17,7 @@
       :class="`py-2 px-1 text-4xl font-bold border-b-4 border-${color}-300 focus:outline-none bg-transparent`"
       type="number"
       name="trophies"
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('input', Number($event.target.value))"
     />
   </div>
 </template>
