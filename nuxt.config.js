@@ -57,6 +57,6 @@ export default {
   build: {},
 
   router: {
-    base: '/<repository-name>/',
+    base: '/mycafe-rewards-calculator/',
   },
 }
