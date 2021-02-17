@@ -3,19 +3,23 @@
     <div
       :class="`bg-${color}-100 rounded-full font-extrabold text-gray-800 flex flex-row my-1`"
     >
-      <svg
-        viewBox="0 0 24 24"
-        :class="`w-8 h-8 p-1.5 bg-${color}-500 rounded-full flex-none`"
-      >
-        <path fill="currentColor" class="text-white" :d="path" />
-      </svg>
+      <svg-icon
+        type="mdi"
+        :path="path"
+        :class="`w-8 h-8 p-1.5 bg-${color}-500 rounded-full flex-none text-white`"
+      />
       <div class="mx-2 leading-8 whitespace-nowrap flex-1">{{ text }}</div>
     </div>
   </div>
 </template>
 
 <script>
+import SvgIcon from '@jamescoyle/vue-icon'
+
 export default {
+  components: {
+    SvgIcon,
+  },
   props: {
     text: {
       type: String,

@@ -1,12 +1,11 @@
 <template>
   <div :class="`bg-${color}-100 rounded-2xl my-5 p-5 flex flex-col`">
     <div class="flex">
-      <svg
-        viewBox="0 0 24 24"
-        :class="`w-7 h-7 mr-3 p-1 bg-${color}-500 rounded-full`"
-      >
-        <path fill="currentColor" class="text-white" :d="path" />
-      </svg>
+      <svg-icon
+        type="mdi"
+        :path="path"
+        :class="`w-7 h-7 mr-3 p-1 bg-${color}-500 rounded-full text-white`"
+      />
       <label class="font-extrabold text-xl text-gray-800 mb-5" for="trophies"
         >{{ title }}
       </label>
@@ -23,7 +22,13 @@
 </template>
 
 <script>
+import SvgIcon from '@jamescoyle/vue-icon'
+
 export default {
+  components: {
+    SvgIcon,
+  },
+
   props: {
     title: {
       type: String,
