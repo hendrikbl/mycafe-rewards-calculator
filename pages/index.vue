@@ -87,10 +87,14 @@
     <footer class="lg:w-3/4 xl:w-2/3 mx-auto mt-10">
       <hr class="border-t-4 rounded-full my-5 mx-5" />
       <div class="grid grid-cols-3 pb-5 mx-5">
-        <div class="text-left">
+        <div class="flex flex-row gap-2">
           <a href="https://github.com/hendrikbl/mycafe-rewards-calculator">
             <svg-icon type="mdi" :path="icons.github" class="h-6" />
           </a>
+          <span>|</span>
+          <nuxt-link class="text-link underline" to="/privacy-policy"
+            >Privacy</nuxt-link
+          >
         </div>
         <div class="font-bold text-center">
           Made with <span class="text-red-500">❤</span> by
