@@ -141,7 +141,7 @@ export default {
         github: mdiGithub,
       },
       allowCookies: false,
-      showCookieConsent: true,
+      showCookieConsent: false,
     }
   },
 
@@ -189,7 +189,7 @@ export default {
 
   created() {
     this.createPlayers(20)
-    if (!this.getCookieConsent() === true) {
+    if (this.getCookieConsent() !== 'true') {
       this.showCookieConsent = true
     }
   },
@@ -229,7 +229,7 @@ export default {
     consentCookies(allowed) {
       if (allowed) {
         bootstrap().then((gtag) => {
-          this.isOpen = false
+          this.showCookieConsent = false
           localStorage.setItem('cookies:accepted', true)
           location.reload()
         })
