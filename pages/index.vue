@@ -87,10 +87,14 @@
     <footer class="lg:w-3/4 xl:w-2/3 mx-auto mt-10">
       <hr class="border-t-4 rounded-full my-5 mx-5" />
       <div class="grid grid-cols-3 pb-5 mx-5">
-        <div class="text-left">
+        <div class="flex flex-row gap-2">
           <a href="https://github.com/hendrikbl/mycafe-rewards-calculator">
             <svg-icon type="mdi" :path="icons.github" class="h-6" />
           </a>
+          <span>|</span>
+          <nuxt-link class="text-link underline" to="/privacy-policy"
+            >Privacy</nuxt-link
+          >
         </div>
         <div class="font-bold text-center">
           Made with <span class="text-red-500">❤</span> by
@@ -103,11 +107,13 @@
         >
       </div>
     </footer>
+    <cookie-consent v-if="showCookieConsent" @accepted="consentCookies" />
   </div>
 </template>
 
 <script>
 import SvgIcon from '@jamescoyle/vue-icon'
+import { bootstrap } from 'vue-gtag'
 
 import {
   mdiAlert,
@@ -138,6 +144,8 @@ export default {
         alert: mdiAlert,
         github: mdiGithub,
       },
+      allowCookies: false,
+      showCookieConsent: false,
     }
   },
 
@@ -185,6 +193,9 @@ export default {
 
   created() {
     this.createPlayers(20)
+    if (this.getCookieConsent() !== 'true') {
+      this.showCookieConsent = true
+    }
   },
 
   methods: {
@@ -217,6 +228,23 @@ export default {
             ? 0
             : Math.floor(this.calculate(this.totals.rubies, player))
       })
+    },
+
+    consentCookies(allowed) {
+      if (allowed) {
+        bootstrap().then((gtag) => {
+          this.showCookieConsent = false
+          localStorage.setItem('cookies:accepted', true)
+          location.reload()
+        })
+      } else {
+        this.showCookieConsent = false
+        localStorage.setItem('cookies:accepted', false)
+      }
+    },
+
+    getCookieConsent() {
+      return localStorage.getItem('cookies:accepted', true)
     },
   },
 }
