@@ -5,11 +5,11 @@
     >
       <svg
         viewBox="0 0 24 24"
-        :class="`w-7 h-7 p-1 bg-${color}-500 rounded-full flex-none`"
+        :class="`w-8 h-8 p-1.5 bg-${color}-500 rounded-full flex-none`"
       >
-        <slot name="svgPath" />
+        <path fill="currentColor" class="text-white" :d="path" />
       </svg>
-      <div class="mx-2 leading-7 whitespace-nowrap flex-1">{{ text }}</div>
+      <div class="mx-2 leading-8 whitespace-nowrap flex-1">{{ text }}</div>
     </div>
   </div>
 </template>
@@ -24,6 +24,10 @@ export default {
     color: {
       type: String,
       default: 'gray',
+    },
+    path: {
+      type: String,
+      default: '',
     },
   },
 }

@@ -1,9 +1,12 @@
 <template>
   <div class="container mx-auto h-screen">
     <div>
+      <!-- TITLE -->
       <h1 class="text-center text-4xl font-extrabold py-10">
         MyCafe Rewards Calculator
       </h1>
+
+      <!-- TOTALS -->
       <div
         class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 lg:w-3/4 xl:w-2/3 mx-auto"
       >
@@ -12,32 +15,25 @@
           color="yellow"
           title="Trophies"
           class="mx-5"
-        >
-          <template #svgPath>
-            <path fill="currentColor" class="text-white" :d="icons.trophy" />
-          </template>
-        </input-card>
+          :path="icons.trophy"
+        />
         <input-card
           v-model="totals.diamonds"
           color="blue"
           title="Diamonds"
           class="mx-5"
-        >
-          <template #svgPath>
-            <path fill="currentColor" class="text-white" :d="icons.diamond" />
-          </template>
-        </input-card>
+          :path="icons.diamond"
+        />
         <input-card
           v-model="totals.rubies"
           color="red"
           title="Rubies"
           class="mx-5"
-        >
-          <template #svgPath>
-            <path fill="currentColor" class="text-white" :d="icons.ruby" />
-          </template>
-        </input-card>
+          :path="icons.ruby"
+        />
       </div>
+
+      <!-- PLAYERCOUNT -->
       <div class="flex flex-row justify-center">
         <input
           id="playercount"
@@ -51,43 +47,49 @@
           min="0"
         />
       </div>
+
+      <!-- PLAYERS -->
       <div v-for="player in players" :key="player.id" class="mx-5">
         <div v-if="player.id <= playercount">
           <player-card v-model="players[player.id]" />
         </div>
       </div>
+
+      <!-- ALERTS -->
       <div class="mx-5 flex-grow">
         <div
           v-if="playerTrophies > totals.trophies"
           class="lg:w-3/4 xl:w-2/3 mx-auto my-2"
         >
-          <alert-card text="Too many trophies assigned!" color="red">
-            <template #svgPath>
-              <path fill="currentColor" class="text-white" :d="icons.alert" />
-            </template>
-          </alert-card>
+          <alert-card
+            text="Too many trophies assigned!"
+            color="red"
+            :path="icons.alert"
+          />
         </div>
         <div
           v-if="playerTrophies < totals.trophies"
           class="lg:w-3/4 xl:w-2/3 mx-auto my-2"
         >
-          <alert-card text="Not all trophies assigned!" color="yellow">
-            <template #svgPath>
-              <path fill="currentColor" class="text-white" :d="icons.alert" />
-            </template>
-          </alert-card>
+          <alert-card
+            text="Not all trophies assigned!"
+            color="yellow"
+            :path="icons.alert"
+          />
         </div>
+
+        <!-- TROVE -->
         <trove-card v-model="trove" class="my-8" />
       </div>
     </div>
+
+    <!-- FOOTER -->
     <footer class="lg:w-3/4 xl:w-2/3 mx-auto mt-10">
       <hr class="border-t-4 rounded-full my-5 mx-5" />
-      <div class="grid grid-cols-3 grid pb-5 mx-5">
+      <div class="grid grid-cols-3 pb-5 mx-5">
         <div class="text-left">
           <a href="https://github.com/hendrikbl/mycafe-rewards-calculator">
-            <svg viewBox="0 0 24 24" class="h-6">
-              <path fill="currentColor" :d="icons.github" />
-            </svg>
+            <svg-icon type="mdi" :path="icons.github" class="h-6" />
           </a>
         </div>
         <div class="font-bold text-center">
@@ -105,6 +107,8 @@
 </template>
 
 <script>
+import SvgIcon from '@jamescoyle/vue-icon'
+
 import {
   mdiAlert,
   mdiCardsDiamondOutline,
@@ -114,6 +118,10 @@ import {
 } from '@mdi/js'
 
 export default {
+  components: {
+    SvgIcon,
+  },
+
   data: () => {
     return {
       totals: {

@@ -5,7 +5,7 @@
         viewBox="0 0 24 24"
         :class="`w-7 h-7 mr-3 p-1 bg-${color}-500 rounded-full`"
       >
-        <slot name="svgPath"></slot>
+        <path fill="currentColor" class="text-white" :d="path" />
       </svg>
       <label class="font-extrabold text-xl text-gray-800 mb-5" for="trophies"
         >{{ title }}
@@ -36,6 +36,10 @@ export default {
     color: {
       type: String,
       default: 'gray',
+    },
+    path: {
+      type: String,
+      default: '',
     },
   },
 

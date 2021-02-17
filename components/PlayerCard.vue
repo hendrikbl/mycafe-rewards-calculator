@@ -17,12 +17,11 @@
     <div
       class="bg-yellow-100 rounded-full font-extrabold text-gray-800 flex flex-row my-1"
     >
-      <svg
-        viewBox="0 0 24 24"
-        class="w-7 h-7 p-1 bg-yellow-500 rounded-full flex-none"
-      >
-        <path fill="currentColor" class="text-white" :d="icons.trophy" />
-      </svg>
+      <svg-icon
+        type="mdi"
+        :path="icons.trophy"
+        class="w-8 h-8 p-1.5 bg-yellow-500 rounded-full flex-none text-white"
+      />
       <input
         :id="`p${localValue.id}-trophies`"
         v-model="localValue.trophies"
@@ -36,26 +35,24 @@
       <div
         class="bg-blue-100 rounded-full font-extrabold text-gray-800 flex flex-row flex-initial w-100"
       >
-        <svg
-          viewBox="0 0 24 24"
-          class="w-7 h-7 p-1 bg-blue-500 rounded-full flex-none"
-        >
-          <path fill="currentColor" class="text-white" :d="icons.diamond" />
-        </svg>
-        <div class="mx-2 leading-7 whitespace-nowrap flex-1">
+        <svg-icon
+          type="mdi"
+          :path="icons.diamond"
+          class="w-8 h-8 p-1.5 bg-blue-500 rounded-full flex-none text-white"
+        />
+        <div class="mx-2 leading-8 whitespace-nowrap flex-1">
           {{ localValue.diamonds }}
         </div>
       </div>
       <div
         class="bg-red-100 rounded-full font-extrabold text-gray-800 flex flex-row flex-initial w-100"
       >
-        <svg
-          viewBox="0 0 24 24"
-          class="w-7 h-7 p-1 bg-red-500 rounded-full flex-none"
-        >
-          <path fill="currentColor" class="text-white" :d="icons.ruby" />
-        </svg>
-        <div class="mx-2 leading-7 whitespace-nowrap flex-1">
+        <svg-icon
+          type="mdi"
+          :path="icons.ruby"
+          class="w-8 h-8 p-1.5 bg-red-500 rounded-full flex-none text-white"
+        />
+        <div class="mx-2 leading-8 whitespace-nowrap flex-1">
           {{ localValue.rubies }}
         </div>
       </div>
@@ -64,6 +61,8 @@
 </template>
 
 <script>
+import SvgIcon from '@jamescoyle/vue-icon'
+
 import {
   mdiCardsDiamondOutline,
   mdiDiamondStone,
@@ -71,6 +70,10 @@ import {
 } from '@mdi/js'
 
 export default {
+  components: {
+    SvgIcon,
+  },
+
   props: {
     value: {
       type: Object,
