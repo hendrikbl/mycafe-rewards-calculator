@@ -103,11 +103,13 @@
         >
       </div>
     </footer>
+    <cookie-consent v-if="showCookieConsent" @accepted="consentCookies" />
   </div>
 </template>
 
 <script>
 import SvgIcon from '@jamescoyle/vue-icon'
+import { bootstrap } from 'vue-gtag'
 
 import {
   mdiAlert,
@@ -138,6 +140,8 @@ export default {
         alert: mdiAlert,
         github: mdiGithub,
       },
+      allowCookies: false,
+      showCookieConsent: true,
     }
   },
 
@@ -185,6 +189,9 @@ export default {
 
   created() {
     this.createPlayers(20)
+    if (!this.getCookieConsent() === true) {
+      this.showCookieConsent = true
+    }
   },
 
   methods: {
@@ -217,6 +224,23 @@ export default {
             ? 0
             : Math.floor(this.calculate(this.totals.rubies, player))
       })
+    },
+
+    consentCookies(allowed) {
+      if (allowed) {
+        bootstrap().then((gtag) => {
+          this.isOpen = false
+          localStorage.setItem('cookies:accepted', true)
+          location.reload()
+        })
+      } else {
+        this.showCookieConsent = false
+        localStorage.setItem('cookies:accepted', false)
+      }
+    },
+
+    getCookieConsent() {
+      return localStorage.getItem('cookies:accepted', true)
     },
   },
 }
