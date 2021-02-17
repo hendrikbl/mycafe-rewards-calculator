@@ -50,7 +50,7 @@
 
       <!-- PLAYERS -->
       <div v-for="player in players" :key="player.id" class="mx-5">
-        <div v-if="player.id <= playercount">
+        <div v-if="player.id < playercount">
           <player-card v-model="players[player.id]" />
         </div>
       </div>
@@ -189,7 +189,7 @@ export default {
 
   methods: {
     createPlayers() {
-      for (let i = 1; i <= 20; i++) {
+      for (let i = 0; i < 20; i++) {
         this.players.push({
           id: i,
           name: '',

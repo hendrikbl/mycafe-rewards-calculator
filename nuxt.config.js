@@ -55,6 +55,7 @@ export default {
     },
     meta: {
       name: 'MyCafé Rewards Calculator',
+      description: 'Rewards Calculator for MyCafé App',
     },
   },
 

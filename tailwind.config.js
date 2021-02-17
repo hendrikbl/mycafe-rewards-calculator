@@ -8,7 +8,12 @@ module.exports = {
       './nuxt.config.{js,ts}',
     ],
     options: {
-      safelist: ['border-red-300', 'border-yellow-300', 'border-blue-300'],
+      safelist: [
+        'border-red-500',
+        'border-red-300',
+        'border-yellow-300',
+        'border-blue-300',
+      ],
     },
   },
   darkMode: false, // or 'media' or 'class'
