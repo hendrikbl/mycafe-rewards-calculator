@@ -1,9 +1,9 @@
 <template>
   <div
-    class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 lg:w-3/4 xl:w-2/3 mx-auto gap-x-5 my-2"
+    class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 lg:w-3/4 xl:w-2/3 mx-auto gap-x-5 my-2 sm:my-5"
   >
     <div
-      class="bg-gray-100 rounded-full font-extrabold text-gray-800 flex flex-row my-1"
+      class="bg-gray-100 rounded-full font-extrabold text-gray-800 flex flex-row my-1 h-8"
     >
       <input
         :id="`p${localValue.id}-name`"
