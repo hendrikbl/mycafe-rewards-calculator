@@ -49,7 +49,12 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
+      name: 'MyCafé Rewards Calculator',
+      short_name: 'MyCafé Calc',
       lang: 'en',
+    },
+    meta: {
+      name: 'MyCafé Rewards Calculator',
     },
   },
 

@@ -3,7 +3,7 @@
     <div>
       <!-- TITLE -->
       <h1 class="text-center text-4xl font-extrabold py-10">
-        MyCafe Rewards Calculator
+        MyCafé Rewards Calculator
       </h1>
 
       <!-- TOTALS -->
