@@ -24,7 +24,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/tailwind.css', '@/assets/css/main.css'],
+  css: [
+    '@/assets/css/tailwind.css',
+    '@/assets/css/main.css',
+    'flag-icon-css/css/flag-icon.min.css',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -49,6 +53,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'nuxt-i18n',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -69,5 +74,36 @@ export default {
 
   router: {
     base: '/mycafe-rewards-calculator/',
+  },
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-EN.js',
+        dir: 'ltr',
+        name: 'English',
+        country: 'gb',
+      },
+      {
+        code: 'de',
+        iso: 'de-DE',
+        file: 'de-DE.js',
+        dir: 'ltr',
+        name: 'Deutsch',
+        country: 'de',
+      },
+    ],
+    defaultLocale: 'en',
+    baseUrl: 'https://hendrikbl.github.io/mycafe-rewards-calculator/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      onlyOnRoot: true,
+      alwaysRedirect: true,
+    },
+    lazy: true,
+    langDir: 'locales/',
   },
 }

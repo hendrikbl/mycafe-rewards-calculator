@@ -60,7 +60,7 @@
       If there are any questions regarding this privacy policy you may contact
       me at hendrik.bloess@gmail.com.
     </p>
-    <nuxt-link class="text-link underline" to="/">
+    <nuxt-link class="text-link underline" :to="localePath('/')">
       <svg-icon
         type="mdi"
         :path="icons.home"
