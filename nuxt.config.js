@@ -24,7 +24,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/tailwind.css', '@/assets/css/main.css'],
+  css: [
+    '@/assets/css/tailwind.css',
+    '@/assets/css/main.css',
+    'flag-icon-css/css/flag-icon.min.css',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -80,6 +84,7 @@ export default {
         file: 'en-EN.js',
         dir: 'ltr',
         name: 'English',
+        country: 'gb',
       },
       {
         code: 'de',
@@ -87,6 +92,7 @@ export default {
         file: 'de-DE.js',
         dir: 'ltr',
         name: 'Deutsch',
+        country: 'de',
       },
     ],
     defaultLocale: 'en',
@@ -94,7 +100,8 @@ export default {
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      onlyOnRoot: true, // recommended
+      onlyOnRoot: true,
+      alwaysRedirect: true,
     },
     lazy: true,
     langDir: 'locales/',

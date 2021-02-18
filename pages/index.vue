@@ -1,6 +1,6 @@
 <template>
-  <div class="container mx-auto h-screen">
-    <div>
+  <div class="container mx-auto h-screen flex flex-col">
+    <div class="mb-auto">
       <!-- TITLE -->
       <h1 class="text-center text-4xl font-extrabold py-10">
         MyCafé Rewards Calculator
@@ -84,37 +84,12 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="lg:w-3/4 xl:w-2/3 mx-auto mt-10">
-      <hr class="border-t-4 rounded-full my-5 mx-5" />
-      <div class="grid grid-cols-3 pb-5 mx-5">
-        <div class="flex flex-row gap-2">
-          <a href="https://github.com/hendrikbl/mycafe-rewards-calculator">
-            <svg-icon type="mdi" :path="icons.github" class="h-6" />
-          </a>
-          <span>|</span>
-          <nuxt-link
-            class="text-link underline"
-            :to="localePath('/privacy-policy')"
-            >{{ $t('Privacy') }}</nuxt-link
-          >
-        </div>
-        <div class="font-bold text-center">
-          Made with <span class="text-red-500">❤</span> by
-          <a href="https://github.com/hendrikbl" class="underline">hendrikbl</a>
-        </div>
-        <a
-          href="http://melsoft-games.com/"
-          class="font-semibold underline text-right"
-          >Melsoft Games</a
-        >
-      </div>
-    </footer>
+    <app-footer />
     <cookie-consent v-if="showCookieConsent" @accepted="consentCookies" />
   </div>
 </template>
 
 <script>
-import SvgIcon from '@jamescoyle/vue-icon'
 import { bootstrap } from 'vue-gtag'
 
 import {
@@ -126,10 +101,7 @@ import {
 } from '@mdi/js'
 
 export default {
-  components: {
-    SvgIcon,
-  },
-
+  name: 'Index',
   data: () => {
     return {
       totals: {
