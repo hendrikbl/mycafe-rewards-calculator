@@ -1,6 +1,12 @@
-# mycafe-rewards-calculator
+# MyCafé Rewards Calculator
 
-## Build Setup
+![Website](https://img.shields.io/website?down_message=offline&up_message=online&url=https%3A%2F%2Fhendrikbl.github.io%2Fmycafe-rewards-calculator%2Fde)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hendrikbl/mycafe-rewards-calculator/cd)
+![GitHub](https://img.shields.io/github/license/hendrikbl/mycafe-rewards-calculator)
+
+A Webapp for calculating festival rewards for the [MyCafé App](http://melsoft-games.com/game/cafe/) by [Melsoft Games](http://melsoft-games.com/).
+
+## Development Setup
 
 ```bash
 # install dependencies

@@ -1,7 +1,9 @@
 {
   "name": "mycafe-rewards-calculator",
   "version": "1.0.0",
-  "private": true,
+  "author": "hendrikbl",
+  "description": "Webapp for calculating rewards for MyCafé",
+  "license": "GPL-3.0",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
