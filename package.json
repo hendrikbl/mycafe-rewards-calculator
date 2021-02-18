@@ -16,6 +16,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.8.3",
     "nuxt": "^2.14.12",
+    "nuxt-i18n": "^6.20.1",
     "vue-gtag": "^1.11.0"
   },
   "devDependencies": {

@@ -49,6 +49,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'nuxt-i18n',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -69,5 +70,33 @@ export default {
 
   router: {
     base: '/mycafe-rewards-calculator/',
+  },
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-EN.js',
+        dir: 'ltr',
+        name: 'English',
+      },
+      {
+        code: 'de',
+        iso: 'de-DE',
+        file: 'de-DE.js',
+        dir: 'ltr',
+        name: 'Deutsch',
+      },
+    ],
+    defaultLocale: 'en',
+    baseUrl: 'https://hendrikbl.github.io/mycafe-rewards-calculator/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      onlyOnRoot: true, // recommended
+    },
+    lazy: true,
+    langDir: 'locales/',
   },
 }

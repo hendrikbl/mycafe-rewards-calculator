@@ -9,19 +9,21 @@
     />
     <div class="lg:mx-8">
       <p>
-        Can I use cookies for analytics? Read
-        <nuxt-link class="text-link underline" to="/privacy-policy"
-          >the privacy policy</nuxt-link
+        {{ $t('we_use_cookies') }} {{ $t('cookies_read') }}
+        <nuxt-link
+          class="text-link underline"
+          :to="localePath('/privacy-policy')"
+          >{{ $t('privacy_policy') }}</nuxt-link
         >
-        for more information.
+        {{ $t('cookies_more_information') }}
       </p>
     </div>
     <div class="flex justify-center mt-4 lg:mt-0">
       <button
-        class="rounded ml-2 md:ml-0 bg-green-500 text-white p-1.5"
+        class="rounded ml-2 md:ml-0 bg-green-500 text-white py-1.5 px-2"
         @click="$emit('accepted', true)"
       >
-        Yes, sure
+        {{ $t('Okay') }}
       </button>
       <button class="md:ml-2 font-bold w-6" @click="$emit('accepted', false)">
         &times;

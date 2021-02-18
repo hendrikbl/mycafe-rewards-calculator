@@ -11,7 +11,7 @@
         class="font-extrabold text-gray-800 focus:outline-none flex-none bg-transparent mx-2 flex-grow"
         type="text"
         :name="`p${localValue.id}-name`"
-        placeholder="Name"
+        :placeholder="$t('Name')"
       />
     </div>
     <div
@@ -28,7 +28,7 @@
         class="font-extrabold text-gray-800 focus:outline-none flex-none bg-transparent mx-2 flex-grow"
         type="number"
         :name="`p${localValue.id}-trophies`"
-        placeholder="Trophies"
+        :placeholder="$t('Trophies')"
       />
     </div>
     <div class="grid grid-cols-2 gap-x-2 my-1">

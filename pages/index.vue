@@ -13,21 +13,21 @@
         <input-card
           v-model="totals.trophies"
           color="yellow"
-          title="Trophies"
+          :title="$t('Trophies')"
           class="mx-5"
           :path="icons.trophy"
         />
         <input-card
           v-model="totals.diamonds"
           color="blue"
-          title="Diamonds"
+          :title="$t('Diamonds')"
           class="mx-5"
           :path="icons.diamond"
         />
         <input-card
           v-model="totals.rubies"
           color="red"
-          title="Rubies"
+          :title="$t('Rubies')"
           class="mx-5"
           :path="icons.ruby"
         />
@@ -43,7 +43,7 @@
           }-500 p-2 mx-2`"
           type="number"
           name="playercount"
-          placeholder="Players"
+          :placeholder="$t('Participants')"
           min="0"
         />
       </div>
@@ -62,7 +62,7 @@
           class="lg:w-3/4 xl:w-2/3 mx-auto my-2"
         >
           <alert-card
-            text="Too many trophies assigned!"
+            :text="$t('too_many_trophies')"
             color="red"
             :path="icons.alert"
           />
@@ -72,7 +72,7 @@
           class="lg:w-3/4 xl:w-2/3 mx-auto my-2"
         >
           <alert-card
-            text="Not all trophies assigned!"
+            :text="$t('not_all_trophies')"
             color="yellow"
             :path="icons.alert"
           />
@@ -92,8 +92,10 @@
             <svg-icon type="mdi" :path="icons.github" class="h-6" />
           </a>
           <span>|</span>
-          <nuxt-link class="text-link underline" to="/privacy-policy"
-            >Privacy</nuxt-link
+          <nuxt-link
+            class="text-link underline"
+            :to="localePath('/privacy-policy')"
+            >{{ $t('Privacy') }}</nuxt-link
           >
         </div>
         <div class="font-bold text-center">

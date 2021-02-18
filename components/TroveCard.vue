@@ -10,7 +10,9 @@
         :path="icons.trove"
         class="w-8 h-8 p-1.5 bg-green-500 rounded-full flex-none text-white"
       />
-      <div class="mx-2 leading-8 whitespace-nowrap flex-1">Treasure Trove</div>
+      <div class="mx-2 leading-8 whitespace-nowrap flex-1">
+        {{ $t('Treasure_Trove') }}
+      </div>
     </div>
     <div class="invisible"></div>
     <div class="grid grid-cols-2 gap-x-2 my-1">
