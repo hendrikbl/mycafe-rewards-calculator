@@ -1,7 +1,7 @@
 {
   "name": "MyCafé Rewards Calculator",
   "short_name": "MyCafé Calc",
-  "description": "## Build Setup",
+  "description": "Webapp for calculating rewards for MyCafé",
   "icons": [
     {
       "src": "/mycafe-rewards-calculator/_nuxt/icons/icon_64x64.1f5fd6.png",
