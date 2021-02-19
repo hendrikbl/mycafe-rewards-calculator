@@ -18,7 +18,11 @@ export default {
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/mycafe-rewards-calculator/favicon.ico',
+      },
       {
         rel: 'stylesheet',
         href:
@@ -70,6 +74,10 @@ export default {
     meta: {
       name: 'MyCafé Rewards Calculator',
       description: 'Rewards Calculator for MyCafé App',
+      appleStatusBarStyle: 'default',
+      mobileAppIOS: true,
+      theme_color: '#ffffff',
+      ogHost: 'https://hendrikbl.github.io/mycafe-rewards-calculator/',
     },
   },
 
@@ -109,5 +117,9 @@ export default {
     },
     lazy: true,
     langDir: 'locales/',
+  },
+
+  server: {
+    host: '0.0.0.0', // default: localhost
   },
 }

@@ -11,11 +11,12 @@
       </label>
     </div>
     <input
-      id="trophies"
+      :id="inputName"
       :value="value"
-      :class="`py-2 px-1 text-4xl font-bold border-b-4 border-${color}-300 focus:outline-none bg-transparent`"
+      :class="`py-2 px-1 text-4xl font-bold border-b-4 border-${color}-300 focus:outline-none bg-transparent rounded-none`"
       type="number"
-      name="trophies"
+      :name="inputName"
+      placeholder="0"
       @input="$emit('input', Number($event.target.value))"
     />
   </div>

@@ -1,13 +1,13 @@
 <template>
   <div
-    class="fixed bottom-0 left-0 lg:flex items-center p-4 bg-gray-300 shadow-sm justify-center w-full"
+    class="fixed bottom-0 left-0 flex items-center p-4 bg-gray-300 shadow-sm justify-center w-full"
   >
     <svg-icon
       type="mdi"
       :path="icons.cookie"
-      class="w-7 h-7 mr-3 p-1 bg-gray-500 rounded-full text-white"
+      class="w-7 h-7 mr-3 p-1 bg-gray-500 rounded-full text-white flex-none"
     />
-    <div class="lg:mx-8">
+    <div class="lg:mx-8 flex-wrap">
       <p>
         {{ $t('we_use_cookies') }} {{ $t('cookies_read') }}
         <nuxt-link
@@ -18,7 +18,7 @@
         {{ $t('cookies_more_information') }}
       </p>
     </div>
-    <div class="flex justify-center mt-4 lg:mt-0">
+    <div class="flex justify-center ml-4 flex-none">
       <button
         class="rounded ml-2 md:ml-0 bg-green-500 text-white py-1.5 px-2"
         @click="$emit('accepted', true)"

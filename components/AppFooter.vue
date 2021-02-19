@@ -2,11 +2,11 @@
   <footer class="lg:w-3/4 xl:w-2/3 mx-auto mt-5">
     <hr class="border-t-4 rounded-full my-5 mx-5" />
     <div class="grid grid-cols-3 pb-5 mx-5">
-      <div class="flex flex-row gap-2">
+      <div class="flex flex-row">
         <a href="https://github.com/hendrikbl/mycafe-rewards-calculator">
           <svg-icon type="mdi" :path="icons.github" class="h-6" />
         </a>
-        |
+        <span class="mx-2">|</span>
         <nuxt-link
           class="text-link underline"
           :to="localePath('/privacy-policy')"
@@ -18,11 +18,11 @@
           Made with <span class="text-red-500">❤</span> by
           <a href="https://github.com/hendrikbl" class="underline">hendrikbl</a>
         </div>
-        <div class="flex flex-row justify-center gap-2 pt-2">
+        <div class="flex flex-row justify-center pt-2">
           <div
             v-for="locale in $i18n.locales"
             :key="locale.code"
-            class="w-5 h-5 rounded-full overflow-hidden cursor-pointer"
+            class="w-5 h-5 rounded-full overflow-hidden cursor-pointer mx-1"
             @click.prevent.stop="changeLanguage(locale.code)"
           >
             <flag

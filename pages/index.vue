@@ -40,7 +40,7 @@
           v-model="playercount"
           :class="`font-extrabold text-gray-800 focus:outline-none flex-none border-b-2 bg-transparent border-${
             playercount <= 20 ? 'gray' : 'red'
-          }-500 p-2 mx-2`"
+          }-500 p-2 mx-2 rounded-none`"
           type="number"
           name="playercount"
           :placeholder="$t('Participants')"
@@ -105,9 +105,9 @@ export default {
   data: () => {
     return {
       totals: {
-        trophies: 0,
-        rubies: 0,
-        diamonds: 0,
+        trophies: null,
+        rubies: null,
+        diamonds: null,
       },
       playercount: null,
       players: [],
@@ -178,7 +178,7 @@ export default {
         this.players.push({
           id: i,
           name: '',
-          trophies: 0,
+          trophies: null,
           diamonds: 0,
           rubies: 0,
         })
@@ -191,7 +191,7 @@ export default {
 
     calculateAll() {
       this.players.forEach((player) => {
-        if (this.totals.trophies === 0) return
+        if (this.totals.trophies === 0 || this.totals.trophies === null) return
 
         player.diamonds =
           this.totals.diamonds === 0 || player.id > this.playercount
