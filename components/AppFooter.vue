@@ -1,5 +1,5 @@
 <template>
-  <footer class="lg:w-3/4 xl:w-2/3 mx-auto mt-5">
+  <footer class="lg:w-3/4 xl:w-2/3 mx-auto">
     <hr class="border-t-4 rounded-full my-5 mx-5 dark:border-gray-500" />
     <div class="grid grid-cols-3 pb-5 mx-5">
       <div class="flex flex-row">

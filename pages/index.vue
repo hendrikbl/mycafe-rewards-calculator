@@ -80,14 +80,16 @@
 
         <!-- TROVE -->
         <trove-card v-model="trove" class="my-8" />
-
-        <!-- THEME TOGGLE -->
-        <theme-toggle />
       </div>
     </div>
 
+    <!-- THEME TOGGLE -->
+    <div class="flex justify-center mx-auto mt-5">
+      <theme-toggle />
+    </div>
+
     <!-- FOOTER -->
-    <app-footer />
+    <app-footer class="mt-1" />
     <cookie-consent v-if="showCookieConsent" @accepted="consentCookies" />
   </div>
 </template>
