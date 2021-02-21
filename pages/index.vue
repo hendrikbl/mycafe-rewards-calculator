@@ -38,7 +38,7 @@
         <input
           id="playercount"
           v-model="playercount"
-          :class="`font-extrabold text-gray-800 focus:outline-none flex-none border-b-2 bg-transparent border-${
+          :class="`font-extrabold text-gray-800 dark:text-white focus:outline-none flex-none border-b-2 bg-transparent border-${
             playercount <= 20 ? 'gray' : 'red'
           }-500 p-2 mx-2 rounded-none`"
           type="number"
@@ -83,8 +83,13 @@
       </div>
     </div>
 
+    <!-- THEME TOGGLE -->
+    <div class="flex justify-center mx-auto mt-5">
+      <theme-toggle />
+    </div>
+
     <!-- FOOTER -->
-    <app-footer />
+    <app-footer class="mt-1" />
     <cookie-consent v-if="showCookieConsent" @accepted="consentCookies" />
   </div>
 </template>
@@ -102,6 +107,7 @@ import {
 
 export default {
   name: 'Index',
+
   data: () => {
     return {
       totals: {

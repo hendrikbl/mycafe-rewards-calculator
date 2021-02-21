@@ -1,5 +1,5 @@
 <template>
-  <div class="text-gray-800 h-screen flex flex-col">
+  <div class="text-gray-800 dark:text-white h-screen flex flex-col">
     <Nuxt />
   </div>
 </template>
@@ -9,7 +9,13 @@ export default {
   name: 'Default',
 
   head() {
-    return this.$nuxtI18nHead({ addSeoAttributes: true })
+    const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
+    return {
+      bodyAttrs: {
+        class: 'dark:bg-gray-800',
+      },
+      ...i18nHead,
+    }
   },
 }
 </script>

@@ -1,11 +1,11 @@
 <template>
   <div
-    class="fixed bottom-0 left-0 flex items-center p-4 bg-gray-300 shadow-sm justify-center w-full"
+    class="fixed bottom-0 left-0 flex items-center p-4 bg-gray-300 dark:bg-gray-500 shadow-sm justify-center w-full"
   >
     <svg-icon
       type="mdi"
       :path="icons.cookie"
-      class="w-7 h-7 mr-3 p-1 bg-gray-500 rounded-full text-white flex-none"
+      class="w-7 h-7 mr-3 p-1 bg-gray-500 dark:bg-gray-600 rounded-full text-white flex-none"
     />
     <div class="lg:mx-8 flex-wrap">
       <p>

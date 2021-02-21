@@ -1,6 +1,6 @@
 <template>
-  <footer class="lg:w-3/4 xl:w-2/3 mx-auto mt-5">
-    <hr class="border-t-4 rounded-full my-5 mx-5" />
+  <footer class="lg:w-3/4 xl:w-2/3 mx-auto">
+    <hr class="border-t-4 rounded-full my-5 mx-5 dark:border-gray-500" />
     <div class="grid grid-cols-3 pb-5 mx-5">
       <div class="flex flex-row">
         <a href="https://github.com/hendrikbl/mycafe-rewards-calculator">
@@ -27,7 +27,7 @@
           >
             <flag
               :country="locale.country"
-              :class="`-ml-1 h-7 w-7 bg-contain bg-no-repeat bg-clip-content ${
+              :class="`-ml-1 -mt-1 h-7 w-7 bg-no-repeat bg-contain bg-center ${
                 locale.code === $i18n.locale ? 'opacity-100' : 'opacity-70'
               }`"
             />

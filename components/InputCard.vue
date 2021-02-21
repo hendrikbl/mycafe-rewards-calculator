@@ -1,19 +1,21 @@
 <template>
-  <div :class="`bg-${color}-100 rounded-2xl my-5 p-5 flex flex-col`">
+  <div
+    :class="`bg-${color}-100 dark:bg-${color}-400 rounded-2xl my-5 p-5 flex flex-col`"
+  >
     <div class="flex">
       <svg-icon
         type="mdi"
         :path="path"
-        :class="`w-7 h-7 mr-3 p-1 bg-${color}-500 rounded-full text-white`"
+        :class="`w-7 h-7 mr-3 p-1 bg-${color}-500 dark:bg-${color}-600 rounded-full text-white`"
       />
-      <label class="font-extrabold text-xl text-gray-800 mb-5" for="trophies"
+      <label class="font-extrabold text-xl mb-5 text-gray-800" for="trophies"
         >{{ title }}
       </label>
     </div>
     <input
       :id="inputName"
       :value="value"
-      :class="`py-2 px-1 text-4xl font-bold border-b-4 border-${color}-300 focus:outline-none bg-transparent rounded-none`"
+      :class="`py-2 px-1 text-4xl font-bold border-b-4 border-${color}-300 dark:border-${color}-500 focus:outline-none bg-transparent rounded-none dark:placeholder-white dark:placeholder-opacity-70 text-gray-800`"
       type="number"
       :name="inputName"
       placeholder="0"
