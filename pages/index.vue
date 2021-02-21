@@ -38,7 +38,7 @@
         <input
           id="playercount"
           v-model="playercount"
-          :class="`font-extrabold text-gray-800 focus:outline-none flex-none border-b-2 bg-transparent border-${
+          :class="`font-extrabold text-gray-800 dark:text-white focus:outline-none flex-none border-b-2 bg-transparent border-${
             playercount <= 20 ? 'gray' : 'red'
           }-500 p-2 mx-2 rounded-none`"
           type="number"
@@ -80,6 +80,9 @@
 
         <!-- TROVE -->
         <trove-card v-model="trove" class="my-8" />
+
+        <!-- THEME TOGGLE -->
+        <theme-toggle />
       </div>
     </div>
 
@@ -102,6 +105,7 @@ import {
 
 export default {
   name: 'Index',
+
   data: () => {
     return {
       totals: {

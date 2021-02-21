@@ -62,6 +62,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     'nuxt-i18n',
+    '@nuxtjs/color-mode',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -117,6 +118,17 @@ export default {
     },
     lazy: true,
     langDir: 'locales/',
+  },
+
+  colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '',
+    storageKey: 'nuxt-color-mode',
   },
 
   server: {
