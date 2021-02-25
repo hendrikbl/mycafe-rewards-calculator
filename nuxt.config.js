@@ -97,7 +97,7 @@ export default {
         file: 'en.js',
         dir: 'ltr',
         name: 'English',
-        country: 'gb',
+        country: 'us',
       },
       {
         code: 'de',
@@ -106,6 +106,14 @@ export default {
         dir: 'ltr',
         name: 'Deutsch',
         country: 'de',
+      },
+      {
+        code: 'es',
+        iso: 'es-ES',
+        file: 'es.js',
+        dir: 'ltr',
+        name: 'Español',
+        country: 'es',
       },
     ],
     defaultLocale: 'en',
@@ -119,6 +127,9 @@ export default {
     },
     lazy: true,
     langDir: 'locales/',
+    vueI18n: {
+      fallbackLocale: 'en',
+    },
   },
 
   colorMode: {
