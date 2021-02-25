@@ -3,5 +3,8 @@
   "Name": "Nombre",
   "Rubies": "Rubíes",
   "Treasure_Trove": "Tesoro",
-  "Trophies": "Copas"
+  "Trophies": "Copas",
+  "meta:description": "Calculadora de recompensas para festivales MyCafé",
+  "Participants": "Participantes",
+  "Privacy": "Intimidad"
 }
