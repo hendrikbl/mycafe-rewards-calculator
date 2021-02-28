@@ -1,5 +1,9 @@
 <template>
-  <button class="focus:outline-none" @click="toggleTheme">
+  <button
+    class="focus:outline-none"
+    aria-label="Dark mode"
+    @click="toggleTheme"
+  >
     <svg-icon
       type="mdi"
       :path="themeIcon"

@@ -42,9 +42,10 @@
             playercount <= 20 ? 'gray' : 'red'
           }-500 p-2 mx-2 rounded-none`"
           type="number"
+          min="0"
           name="playercount"
           :placeholder="$t('Participants')"
-          min="0"
+          :aria-label="$t('Participants')"
         />
       </div>
 

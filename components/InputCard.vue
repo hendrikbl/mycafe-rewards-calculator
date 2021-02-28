@@ -8,7 +8,7 @@
         :path="path"
         :class="`w-7 h-7 mr-3 p-1 bg-${color}-500 dark:bg-${color}-600 rounded-full text-white`"
       />
-      <label class="font-extrabold text-xl mb-5 text-gray-800" for="trophies"
+      <label class="font-extrabold text-xl mb-5 text-gray-800" :for="inputName"
         >{{ title }}
       </label>
     </div>

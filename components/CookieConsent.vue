@@ -20,7 +20,7 @@
     </div>
     <div class="flex justify-center ml-4 flex-none">
       <button
-        class="rounded ml-2 md:ml-0 bg-green-500 text-white py-1.5 px-2"
+        class="rounded ml-2 md:ml-0 bg-green-500 py-1.5 px-2"
         @click="$emit('accepted', true)"
       >
         {{ $t('Okay') }}
