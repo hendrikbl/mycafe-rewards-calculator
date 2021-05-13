@@ -1,11 +1,8 @@
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
-  // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'MyCafe Rewards Calculator',
     meta: [
@@ -31,37 +28,24 @@ export default {
     ],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/css/tailwind.css',
     '@/assets/css/main.css',
     'flag-icon-css/css/flag-icon.min.css',
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
+    '@nuxt/postcss8',
     '@nuxtjs/eslint-module',
-    // https://tailwindcss.com/docs/guides/nuxtjs
     '@nuxtjs/tailwindcss',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-    'nuxt-i18n',
-    '@nuxtjs/color-mode',
-    'vue-plausible',
-  ],
+  modules: ['@nuxtjs/pwa', 'nuxt-i18n', '@nuxtjs/color-mode', 'vue-plausible'],
 
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       name: 'MyCafé Rewards Calculator',
@@ -78,7 +62,6 @@ export default {
     },
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   router: {
@@ -129,7 +112,6 @@ export default {
   },
 
   plausible: {
-    // see configuration section
     domain: 'hendrikbl.github.io/mycafe-rewards-calculator/',
     trackLocalhost: false,
     apiHost: 'https://analytics.h-bloess.de',
