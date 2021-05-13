@@ -9,12 +9,6 @@
         >
           <svg-icon type="mdi" :path="icons.github" class="h-6" />
         </a>
-        <span class="mx-2">|</span>
-        <nuxt-link
-          class="text-link underline"
-          :to="localePath('/privacy-policy')"
-          >{{ $t('Privacy') }}</nuxt-link
-        >
       </div>
       <div class="flex flex-col">
         <div class="font-bold text-center">

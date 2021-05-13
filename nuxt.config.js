@@ -39,12 +39,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    {
-      src: '@/plugins/vue-gtag.js',
-      mode: 'client',
-    },
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -63,6 +58,7 @@ export default {
     '@nuxtjs/pwa',
     'nuxt-i18n',
     '@nuxtjs/color-mode',
+    'vue-plausible',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -130,6 +126,13 @@ export default {
     vueI18n: {
       fallbackLocale: 'en',
     },
+  },
+
+  plausible: {
+    // see configuration section
+    domain: 'hendrikbl.github.io/mycafe-rewards-calculator/',
+    trackLocalhost: false,
+    apiHost: 'https://analytics.h-bloess.de',
   },
 
   colorMode: {

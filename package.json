@@ -20,7 +20,7 @@
     "flag-icon-css": "^3.5.0",
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.20.1",
-    "vue-gtag": "^1.11.0"
+    "vue-plausible": "^1.1.4"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^2.0.3",

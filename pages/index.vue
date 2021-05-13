@@ -91,13 +91,10 @@
 
     <!-- FOOTER -->
     <app-footer class="mt-1" />
-    <cookie-consent v-if="showCookieConsent" @accepted="consentCookies" />
   </div>
 </template>
 
 <script>
-import { bootstrap } from 'vue-gtag'
-
 import {
   mdiAlert,
   mdiCardsDiamondOutline,
@@ -125,8 +122,6 @@ export default {
         alert: mdiAlert,
         github: mdiGithub,
       },
-      allowCookies: false,
-      showCookieConsent: false,
     }
   },
 
@@ -174,9 +169,6 @@ export default {
 
   created() {
     this.createPlayers(20)
-    if (this.getCookieConsent() !== 'true') {
-      this.showCookieConsent = true
-    }
   },
 
   methods: {
@@ -209,23 +201,6 @@ export default {
             ? 0
             : Math.floor(this.calculate(this.totals.rubies, player))
       })
-    },
-
-    consentCookies(allowed) {
-      if (allowed) {
-        bootstrap().then((gtag) => {
-          this.showCookieConsent = false
-          localStorage.setItem('cookies:accepted', true)
-          location.reload()
-        })
-      } else {
-        this.showCookieConsent = false
-        localStorage.setItem('cookies:accepted', false)
-      }
-    },
-
-    getCookieConsent() {
-      return localStorage.getItem('cookies:accepted', true)
     },
   },
 }
