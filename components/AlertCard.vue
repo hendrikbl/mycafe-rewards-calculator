@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 my-2">
     <div
-      :class="`bg-${color}-100 dark:bg-${color}-400 rounded-full font-extrabold text-gray-800 flex flex-row my-1`"
+      :class="`bg-${color}-100 dark:bg-${color}-400 rounded-full font-extrabold text-gray-800 flex flex-row my-1 shadow`"
     >
       <svg-icon
         type="mdi"

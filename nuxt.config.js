@@ -22,8 +22,7 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap',
       },
     ],
   },
@@ -32,6 +31,7 @@ export default {
     '@/assets/css/tailwind.css',
     '@/assets/css/main.css',
     'flag-icon-css/css/flag-icon.min.css',
+    'animate.css/animate.css',
   ],
 
   plugins: [],

@@ -7,7 +7,7 @@
     <svg-icon
       type="mdi"
       :path="themeIcon"
-      :class="`w-10 h-10 p-2 bg-gray-100 dark:bg-gray-600 rounded-full dark:text-yellow-500`"
+      class="w-10 h-10 p-2 dark:text-yellow-500"
     />
   </button>
 </template>

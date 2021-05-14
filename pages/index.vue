@@ -1,14 +1,20 @@
 <template>
-  <div class="container mx-auto h-screen flex flex-col">
+  <div class="container mx-auto h-screen flex flex-col my-5">
     <div class="mb-auto">
-      <!-- TITLE -->
-      <h1 class="text-center text-4xl font-extrabold py-10">
-        MyCafé Rewards Calculator
-      </h1>
+      <!-- NAVBAR -->
+      <navbar></navbar>
 
       <!-- TOTALS -->
       <div
-        class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 lg:w-3/4 xl:w-2/3 mx-auto"
+        class="
+          grid grid-cols-1
+          sm:grid-cols-1
+          md:grid-cols-3
+          lg:grid-cols-3
+          xl:grid-cols-3
+          mx-auto
+          mt-5
+        "
       >
         <input-card
           v-model="totals.trophies"
@@ -84,11 +90,6 @@
       </div>
     </div>
 
-    <!-- THEME TOGGLE -->
-    <div class="flex justify-center mx-auto mt-5">
-      <theme-toggle />
-    </div>
-
     <!-- FOOTER -->
     <app-footer class="mt-1" />
   </div>
@@ -102,9 +103,11 @@ import {
   mdiGithub,
   mdiTrophyVariantOutline,
 } from '@mdi/js'
+import Navbar from '~/components/Navbar.vue'
 
 export default {
   name: 'Index',
+  components: { Navbar },
 
   data: () => {
     return {

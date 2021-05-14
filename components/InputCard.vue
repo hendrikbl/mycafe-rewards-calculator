@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`bg-${color}-100 dark:bg-${color}-400 rounded-2xl my-5 p-5 flex flex-col`"
+    :class="`bg-${color}-100 dark:bg-${color}-400 rounded-2xl my-5 p-5 flex flex-col shadow`"
   >
     <div class="flex">
       <svg-icon
