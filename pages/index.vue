@@ -175,8 +175,8 @@ export default {
   },
 
   methods: {
-    createPlayers() {
-      for (let i = 0; i < 20; i++) {
+    createPlayers(count) {
+      for (let i = 0; i < count; i++) {
         this.players.push({
           id: i,
           name: '',
@@ -193,14 +193,15 @@ export default {
 
     calculateAll() {
       this.players.forEach((player) => {
+        // if (player.id >= this.playercount) player.trophies = null
         if (this.totals.trophies === 0 || this.totals.trophies === null) return
 
         player.diamonds =
-          this.totals.diamonds === 0 || player.id > this.playercount
+          this.totals.diamonds === 0 || player.id >= this.playercount
             ? 0
             : Math.floor(this.calculate(this.totals.diamonds, player))
         player.rubies =
-          this.totals.rubies === 0 || player.id > this.playercount
+          this.totals.rubies === 0 || player.id >= this.playercount
             ? 0
             : Math.floor(this.calculate(this.totals.rubies, player))
       })

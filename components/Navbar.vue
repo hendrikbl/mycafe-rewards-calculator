@@ -6,7 +6,7 @@
       </div>
 
       <div class="md:hidden flex align-middle col-span-5">
-        <img src="/logo.svg" class="h-10 w-10 mr-3" />
+        <img src="~/assets/svg/logo.svg" class="h-10 w-10 mr-3" />
         <span class="align-middle leading-10 text-2xl"> MyCafé RC </span>
       </div>
 
