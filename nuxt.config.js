@@ -38,11 +38,7 @@ export default {
 
   components: true,
 
-  buildModules: [
-    '@nuxt/postcss8',
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss',
-  ],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss'],
 
   modules: ['@nuxtjs/pwa', 'nuxt-i18n', '@nuxtjs/color-mode', 'vue-plausible'],
 
