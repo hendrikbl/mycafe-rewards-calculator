@@ -161,8 +161,9 @@ import {
   mdiDiamondStone,
   mdiTrophyVariantOutline,
 } from '@mdi/js'
+import { computed, defineComponent, ref, toRefs } from '@nuxtjs/composition-api'
 
-export default {
+export default defineComponent({
   components: {
     SvgIcon,
   },
@@ -182,27 +183,27 @@ export default {
     },
   },
 
-  data: () => {
-    return {
-      icons: {
-        diamond: mdiDiamondStone,
-        ruby: mdiCardsDiamondOutline,
-        trophy: mdiTrophyVariantOutline,
-      },
-    }
-  },
+  setup(props) {
+    const { value } = toRefs(props)
 
-  computed: {
-    localValue: {
+    const icons = ref({
+      diamond: mdiDiamondStone,
+      ruby: mdiCardsDiamondOutline,
+      trophy: mdiTrophyVariantOutline,
+    })
+
+    const localValue = computed({
       get() {
-        return this.value
+        return value.value
       },
-      set(localValue) {
-        this.$emit('input', localValue)
+      set(newValue) {
+        this.$emit('input', newValue)
       },
-    },
+    })
+
+    return { icons, localValue }
   },
-}
+})
 </script>
 
 <style></style>

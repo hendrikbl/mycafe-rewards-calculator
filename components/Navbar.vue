@@ -44,33 +44,27 @@
 <script>
 import { mdiBellOutline, mdiCogOutline, mdiBookOutline } from '@mdi/js'
 import SvgIcon from '@jamescoyle/vue-icon'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 import SettingsMenu from './SettingsMenu.vue'
 import ThemeToggle from './ThemeToggle.vue'
 
-export default {
+export default defineComponent({
   name: 'Navbar',
 
   components: { SvgIcon, SettingsMenu, ThemeToggle },
 
-  data: () => {
-    return {
-      icons: {
-        bell: mdiBellOutline,
-        settings: mdiCogOutline,
-        book: mdiBookOutline,
-      },
-      showMenu: false,
-    }
+  setup() {
+    const icons = ref({
+      bell: mdiBellOutline,
+      settings: mdiCogOutline,
+      book: mdiBookOutline,
+    })
+
+    const showMenu = ref(false)
+
+    return { icons, showMenu }
   },
-
-  computed: {},
-
-  watch: {},
-
-  created() {},
-
-  methods: {},
-}
+})
 </script>
 
 <style></style>

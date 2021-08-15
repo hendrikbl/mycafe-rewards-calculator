@@ -38,7 +38,11 @@ export default {
 
   components: true,
 
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss'],
+  buildModules: [
+    '@nuxtjs/composition-api/module',
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/tailwindcss',
+  ],
 
   modules: ['@nuxtjs/pwa', 'nuxt-i18n', '@nuxtjs/color-mode', 'vue-plausible'],
 
@@ -126,5 +130,10 @@ export default {
 
   server: {
     host: '0.0.0.0', // default: localhost
+  },
+
+  generate: {
+    // choose to suit your project
+    interval: 2000,
   },
 }

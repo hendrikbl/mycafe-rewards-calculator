@@ -30,7 +30,7 @@
               />
               <label
                 for="task"
-                :class="mode == 'task' ? activeClasses : buttonClasses"
+                :class="mode == 'task' ? activeClasses : defaultClasses"
                 >By Task</label
               >
             </div>
@@ -44,7 +44,7 @@
               />
               <label
                 for="trophy"
-                :class="mode == 'trophy' ? activeClasses : buttonClasses"
+                :class="mode == 'trophy' ? activeClasses : defaultClasses"
                 >By Trophies</label
               >
             </div>
@@ -58,7 +58,7 @@
               />
               <label
                 for="fifty"
-                :class="mode == 'fifty' ? activeClasses : buttonClasses"
+                :class="mode == 'fifty' ? activeClasses : defaultClasses"
                 >50 / 50</label
               >
             </div>
@@ -107,35 +107,55 @@
 </template>
 
 <script>
-export default {
-  data: () => {
+import {
+  defineComponent,
+  onMounted,
+  ref,
+  useContext,
+} from '@nuxtjs/composition-api'
+
+export default defineComponent({
+  setup(props, { emit }) {
+    const { i18n } = useContext()
+
+    const showSheet = ref(false)
+    const mode = ref('task')
+    const activeClasses = ref(
+      'font-bold rounded-lg bg-purple-200 p-2 ring-2 ring-purple-500 cursor-pointer'
+    )
+    const defaultClasses = ref(
+      'font-bold rounded-lg bg-gray-200 p-2 cursor-pointer'
+    )
+    const selected = ref(null)
+
+    const openSheet = () => {
+      showSheet.value = true
+    }
+
+    onMounted(openSheet)
+
+    const close = () => {
+      showSheet.value = false
+      setTimeout(() => {
+        emit('close')
+      }, 100)
+    }
+
+    const changeLanguage = (lang) => {
+      i18n.setLocale(lang)
+    }
+
     return {
-      showSheet: false,
-      mode: 'task',
-      activeClasses:
-        'font-bold rounded-lg bg-purple-200 p-2 ring-2 ring-purple-500 cursor-pointer',
-      buttonClasses: 'font-bold rounded-lg bg-gray-200 p-2 cursor-pointer',
-      selected: null,
+      showSheet,
+      mode,
+      activeClasses,
+      defaultClasses,
+      selected,
+      close,
+      changeLanguage,
     }
   },
-
-  mounted() {
-    this.showSheet = true
-  },
-
-  methods: {
-    close() {
-      this.showSheet = false
-      setTimeout(() => {
-        this.$emit('close')
-      }, 100)
-    },
-
-    changeLanguage(lang) {
-      this.$i18n.setLocale(lang)
-    },
-  },
-}
+})
 </script>
 
 <style>

@@ -15,8 +15,9 @@
 
 <script>
 import SvgIcon from '@jamescoyle/vue-icon'
+import { defineComponent } from '@nuxtjs/composition-api'
 
-export default {
+export default defineComponent({
   components: {
     SvgIcon,
   },
@@ -34,7 +35,7 @@ export default {
       default: '',
     },
   },
-}
+})
 </script>
 
 <style></style>

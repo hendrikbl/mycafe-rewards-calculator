@@ -193,8 +193,8 @@ export default {
 
     calculateAll() {
       this.players.forEach((player) => {
-        // if (player.id >= this.playercount) player.trophies = null
-        if (this.totals.trophies === 0 || this.totals.trophies === null) return
+        if (player.id >= this.playercount) player.trophies = null
+        // if (this.totals.trophies === 0 || this.totals.trophies === null) return
 
         player.diamonds =
           this.totals.diamonds === 0 || player.id >= this.playercount

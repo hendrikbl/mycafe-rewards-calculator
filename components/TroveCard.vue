@@ -110,15 +110,15 @@
 </template>
 
 <script>
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 import SvgIcon from '@jamescoyle/vue-icon'
-
 import {
   mdiCardsDiamondOutline,
   mdiDiamondStone,
   mdiTreasureChest,
 } from '@mdi/js'
 
-export default {
+export default defineComponent({
   components: {
     SvgIcon,
   },
@@ -135,16 +135,16 @@ export default {
     },
   },
 
-  data: () => {
-    return {
-      icons: {
-        diamond: mdiDiamondStone,
-        ruby: mdiCardsDiamondOutline,
-        trove: mdiTreasureChest,
-      },
-    }
+  setup() {
+    const icons = ref({
+      diamond: mdiDiamondStone,
+      ruby: mdiCardsDiamondOutline,
+      trove: mdiTreasureChest,
+    })
+
+    return { icons }
   },
-}
+})
 </script>
 
 <style></style>

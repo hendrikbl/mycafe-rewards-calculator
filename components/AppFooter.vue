@@ -27,23 +27,27 @@
 
 <script>
 import SvgIcon from '@jamescoyle/vue-icon'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 
 import { mdiGithub } from '@mdi/js'
 
-export default {
+export default defineComponent({
   components: {
     SvgIcon,
   },
 
-  data: () => {
+  setup() {
+    const showLangSelect = ref(false)
+    const icons = ref({
+      github: mdiGithub,
+    })
+
     return {
-      showLangSelect: false,
-      icons: {
-        github: mdiGithub,
-      },
+      showLangSelect,
+      icons,
     }
   },
-}
+})
 </script>
 
 <style></style>
