@@ -2,11 +2,18 @@
   "meta:description": "Belohnungsrechner für MyCafé Festivals",
   "Diamonds": "Diamanten",
   "Name": "Name",
-  "not_all_trophies": "Es wurden noch nicht alle Trophäen zugeteilt!",
   "Okay": "Okay",
   "Participants": "Teilnehmer",
   "Rubies": "Rubine",
-  "too_many_trophies": "Es wurden zu viele Trophäen zugeteilt!",
   "Treasure_Trove": "Fundgrube",
-  "Trophies": "Trophäen"
+  "Trophies": "Trophäen",
+  "Tasks": "Aufgaben",
+  "not_all": "Es wurden noch nicht alle",
+  "too_many": "Es wurden zu viele",
+  "assigned": "zugeteilt",
+  "or": "oder",
+  "by_trophies": "Nach Tropähen",
+  "by_tasks": "Nach Aufgaben",
+  "News": "Neuigkeiten",
+  "How_it_works": "Wie funktioniert das?"
 }

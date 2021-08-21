@@ -11,13 +11,13 @@
       </div>
 
       <div class="col-start-6 col-span-1 flex justify-end align-middle gap-1">
-        <button class="focus:outline-none" aria-label="recipes">
+        <!-- <button class="focus:outline-none" aria-label="recipes">
           <svg-icon
             type="mdi"
             :path="icons.book"
             class="w-10 h-10 p-2 dark:text-white"
           />
-        </button>
+        </button> -->
         <theme-toggle />
         <div class="md:relative">
           <div class="flex align-middle h-full">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="fixed z-10 inset-0 overflow-y-auto text-gray-800">
+    <div class="fixed z-10 inset-0 overflow-y-auto">
       <div
         class="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity"
         aria-hidden="true"
@@ -15,7 +15,18 @@
         <!-- MODE -->
         <div
           v-if="showSheet"
-          class="fixed bottom-0 shadow py-1 bg-white w-full rounded-t-xl"
+          class="
+            fixed
+            bottom-0
+            shadow
+            py-1
+            bg-white
+            dark:bg-gray-900
+            text-gray-800
+            dark:text-white
+            w-full
+            rounded-t-xl
+          "
           role="menu"
         >
           <hr class="border-t-4 rounded-full w-5 my-2 mx-auto" />
@@ -25,13 +36,13 @@
                 id="task"
                 v-model="mode"
                 type="radio"
-                value="task"
+                value="1"
                 class="hidden"
               />
               <label
                 for="task"
-                :class="mode == 'task' ? activeClasses : defaultClasses"
-                >By Task</label
+                :class="mode == 1 ? activeClasses : defaultClasses"
+                >{{ $t('by_tasks') }}</label
               >
             </div>
             <div>
@@ -39,13 +50,13 @@
                 id="trophy"
                 v-model="mode"
                 type="radio"
-                value="trophy"
+                value="2"
                 class="hidden"
               />
               <label
                 for="trophy"
-                :class="mode == 'trophy' ? activeClasses : defaultClasses"
-                >By Trophies</label
+                :class="mode == '2' ? activeClasses : defaultClasses"
+                >{{ $t('by_trophies') }}</label
               >
             </div>
             <div>
@@ -53,36 +64,40 @@
                 id="fifty"
                 v-model="mode"
                 type="radio"
-                value="fifty"
+                value="3"
                 class="hidden"
               />
               <label
                 for="fifty"
-                :class="mode == 'fifty' ? activeClasses : defaultClasses"
+                :class="mode == '3' ? activeClasses : defaultClasses"
                 >50 / 50</label
               >
             </div>
           </div>
 
           <!-- LINKS -->
-          <hr class="border-t-1 rounded-full my-2 mx-auto" />
+          <hr
+            class="border-t-1 rounded-full my-2 mx-auto dark:border-gray-700"
+          />
           <a
             href="#"
             class="block px-4 py-2 text-sm"
             role="menuitem"
             tabindex="-1"
-            >News</a
+            >{{ $t('News') }}</a
           >
           <a
             href="#"
             class="block px-4 py-2 text-sm"
             role="menuitem"
             tabindex="-1"
-            >How does it work?</a
+            >{{ $t('How_it_works') }}</a
           >
 
           <!-- LANGUAGE -->
-          <hr class="border-t-1 rounded-full my-2 mx-auto" />
+          <hr
+            class="border-t-1 rounded-full my-2 mx-auto dark:border-gray-700"
+          />
           <div class="flex flex-row justify-center p-2">
             <div
               v-for="locale in $i18n.locales"
@@ -112,19 +127,19 @@ import {
   onMounted,
   ref,
   useContext,
+  computed,
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup(props, { emit }) {
-    const { i18n } = useContext()
+    const { i18n, store } = useContext()
 
     const showSheet = ref(false)
-    const mode = ref('task')
     const activeClasses = ref(
-      'font-bold rounded-lg bg-purple-200 p-2 ring-2 ring-purple-500 cursor-pointer'
+      'font-bold rounded-lg bg-indigo-200 dark:bg-indigo-700 p-2 ring-2 ring-indigo-500 cursor-pointer'
     )
     const defaultClasses = ref(
-      'font-bold rounded-lg bg-gray-200 p-2 cursor-pointer'
+      'font-bold rounded-lg bg-gray-200 dark:bg-gray-700 p-2 cursor-pointer'
     )
     const selected = ref(null)
 
@@ -145,14 +160,23 @@ export default defineComponent({
       i18n.setLocale(lang)
     }
 
+    const mode = computed({
+      get() {
+        return store.state.mode
+      },
+      set(mode) {
+        store.commit('setMode', parseInt(mode))
+      },
+    })
+
     return {
       showSheet,
-      mode,
       activeClasses,
       defaultClasses,
       selected,
       close,
       changeLanguage,
+      mode,
     }
   },
 })
