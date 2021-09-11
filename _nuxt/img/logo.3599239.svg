@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.26761,0,0,1.26761,-14.6722,-1.99959)">
+        <g id="trophy-variant-outline.svg" transform="matrix(11.1351,0,0,11.1351,217.034,203.533)">
+            <g transform="matrix(1,0,0,1,-12,-12)">
+                <path d="M17,4L17,2L7,2L7,4L2,4L2,11C2,12.1 2.9,13 4,13L7.1,13C7.5,14.96 9.04,16.5 11,16.9L11,19.08C8,19.54 8,22 8,22L16,22C16,22 16,19.54 13,19.08L13,16.9C14.96,16.5 16.5,14.96 16.9,13L20,13C21.1,13 22,12.1 22,11L22,4L17,4M4,11L4,6L7,6L7,11L4,11M15,12C15,13.65 13.65,15 12,15C10.35,15 9,13.65 9,12L9,4L15,4L15,12M20,11L17,11L17,6L20,6L20,11Z" style="fill:rgb(246,160,0);fill-rule:nonzero;"/>
+            </g>
+        </g>
+        <g id="cards-diamond-outline.svg" transform="matrix(5.07293,-7.2449,7.2449,5.07293,124.115,264.164)">
+            <g transform="matrix(1,0,0,1,-12,-12)">
+                <path d="M12,2L5,12L12,22L19,12M7.44,12L12,5.5L16.56,12L12,18.5" style="fill:rgb(240,67,67);fill-rule:nonzero;"/>
+            </g>
+        </g>
+        <g id="diamond-stone.svg" transform="matrix(4.12733,5.7863,-5.7863,4.12733,301.624,273.59)">
+            <g transform="matrix(1,0,0,1,-12,-12)">
+                <path d="M16,9L19,9L14,16M10,9L14,9L12,17M5,9L8,9L10,16M15,4L17,4L19,7L16,7M11,4L13,4L14,7L10,7M7,4L9,4L8,7L5,7M6,2L2,8L12,22L22,8L18,2L6,2Z" style="fill:rgb(57,131,246);fill-rule:nonzero;"/>
+            </g>
+        </g>
+    </g>
+</svg>
