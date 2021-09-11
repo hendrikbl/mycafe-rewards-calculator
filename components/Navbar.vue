@@ -11,6 +11,7 @@
       </div>
 
       <div class="col-start-6 col-span-1 flex justify-end align-middle gap-1">
+        <!-- TODO list recipes -->
         <!-- <button class="focus:outline-none" aria-label="recipes">
           <svg-icon
             type="mdi"

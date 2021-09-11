@@ -80,10 +80,10 @@
             class="border-t-1 rounded-full my-2 mx-auto dark:border-gray-700"
           />
           <a
-            href="#"
-            class="block px-4 py-2 text-sm"
+            class="block px-4 py-2 text-sm cursor-pointer"
             role="menuitem"
             tabindex="-1"
+            @click="showChangelog = true"
             >{{ $t('News') }}</a
           >
           <a
@@ -115,9 +115,14 @@
               />
             </div>
           </div>
+          <div class="flex flex-row justify-center p-2">
+            <a class="text-sm font-light">v{{ version }}</a>
+          </div>
         </div>
       </transition>
     </div>
+
+    <changelog-modal v-if="showChangelog" @close="showChangelog = false" />
   </div>
 </template>
 
@@ -130,7 +135,14 @@ import {
   computed,
 } from '@nuxtjs/composition-api'
 
+import { version } from '../package.json'
+import ChangelogModal from './ChangelogModal.vue'
+
 export default defineComponent({
+  components: {
+    ChangelogModal,
+  },
+
   setup(props, { emit }) {
     const { i18n, store } = useContext()
 
@@ -160,6 +172,8 @@ export default defineComponent({
       i18n.setLocale(lang)
     }
 
+    const showChangelog = ref(false)
+
     const mode = computed({
       get() {
         return store.state.mode
@@ -170,6 +184,7 @@ export default defineComponent({
     })
 
     return {
+      version,
       showSheet,
       activeClasses,
       defaultClasses,
@@ -177,6 +192,7 @@ export default defineComponent({
       close,
       changeLanguage,
       mode,
+      showChangelog,
     }
   },
 })
