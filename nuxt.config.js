@@ -32,9 +32,10 @@ export default {
     '@/assets/css/main.css',
     'flag-icon-css/css/flag-icon.min.css',
     'animate.css/animate.css',
+    'katex/dist/katex.min.css',
   ],
 
-  plugins: [],
+  plugins: [{ src: '@/plugins/katex-vue.js', ssr: false }],
 
   components: true,
 

@@ -82,15 +82,13 @@
           <a
             class="block px-4 py-2 text-sm cursor-pointer"
             role="menuitem"
-            tabindex="-1"
             @click="showChangelog = true"
             >{{ $t('News') }}</a
           >
           <a
-            href="#"
-            class="block px-4 py-2 text-sm"
+            class="block px-4 py-2 text-sm cursor-pointer"
             role="menuitem"
-            tabindex="-1"
+            @click="showHowItWorks = true"
             >{{ $t('How_it_works') }}</a
           >
 
@@ -123,6 +121,7 @@
     </div>
 
     <changelog-modal v-if="showChangelog" @close="showChangelog = false" />
+    <how-it-works-modal v-if="showHowItWorks" @close="showHowItWorks = false" />
   </div>
 </template>
 
@@ -137,10 +136,12 @@ import {
 
 import { version } from '../package.json'
 import ChangelogModal from './ChangelogModal.vue'
+import HowItWorksModal from './HowItWorksModal.vue'
 
 export default defineComponent({
   components: {
     ChangelogModal,
+    HowItWorksModal,
   },
 
   setup(props, { emit }) {
@@ -173,6 +174,7 @@ export default defineComponent({
     }
 
     const showChangelog = ref(false)
+    const showHowItWorks = ref(false)
 
     const mode = computed({
       get() {
@@ -193,6 +195,7 @@ export default defineComponent({
       changeLanguage,
       mode,
       showChangelog,
+      showHowItWorks,
     }
   },
 })

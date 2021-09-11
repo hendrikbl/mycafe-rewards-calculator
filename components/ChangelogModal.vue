@@ -24,7 +24,7 @@
         "
       >
         <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-          <div class="">
+          <div>
             <div class="my-2 text-center">
               <h3>{{ $t('News') }}</h3>
               <div

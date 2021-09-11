@@ -5843,6 +5843,13 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+katex@^0.13.18:
+  version "0.13.18"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.13.18.tgz#ba89e8e4b70cc2325e25e019a62b9fe71e5c2931"
+  integrity sha512-a3dC4NSVSDU3O1WZbTnOiA8rVNJ2lSiomOl0kmckCIGObccIHXof7gAseIY0o1gjEspe+34ZeSEX2D1ChFKIvA==
+  dependencies:
+    commander "^6.0.0"
+
 keygrip@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/keygrip/-/keygrip-1.1.0.tgz#871b1681d5e159c62a445b0c74b615e0917e7226"
@@ -9843,6 +9850,13 @@ vue-i18n@^8.25.0:
   version "8.25.0"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.25.0.tgz#1037d9295fa2845a230b771de473481edb2cfc4c"
   integrity sha512-ynhcL+PmTxuuSE1T10htiSXzjBozxYIE3ffbM1RfgAkVbr/v1SP+9Mi/7/uv8ZVV1yGuKjFAYp9BXq+X7op6MQ==
+
+vue-katex@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/vue-katex/-/vue-katex-0.5.0.tgz#af178cc50932847ce2be28e2a35c30246e890e32"
+  integrity sha512-KsjSK4ftpw9q8SP1OJbigPOozdthOS46+6GmqkToXZVmmPejBHGGmDUxJ/2UtkyAuHf5dHL+2RvOXi/RV77YOA==
+  dependencies:
+    deepmerge "^4.2.2"
 
 vue-loader@^15.9.7:
   version "15.9.7"

@@ -2,6 +2,7 @@
 
 ![Website](https://img.shields.io/website?down_message=offline&up_message=online&url=https%3A%2F%2Fhendrikbl.github.io%2Fmycafe-rewards-calculator%2Fde)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hendrikbl/mycafe-rewards-calculator/cd)
+[![CodeQL](https://github.com/hendrikbl/mycafe-rewards-calculator/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hendrikbl/mycafe-rewards-calculator/actions/workflows/codeql-analysis.yml)
 [![gitlocalized](https://gitlocalize.com/repo/5784/whole_project/badge.svg)](https://gitlocalize.com/repo/5784/whole_project?utm_source=badge)
 ![GitHub](https://img.shields.io/github/license/hendrikbl/mycafe-rewards-calculator)
 
