@@ -5,7 +5,7 @@
         class="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity"
         aria-hidden="true"
         @click="close"
-      ></div>
+      />
 
       <transition
         name="custom-classes-transition"
