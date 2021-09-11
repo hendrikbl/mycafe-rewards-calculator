@@ -113,7 +113,7 @@ export default {
   },
 
   plausible: {
-    domain: 'hendrikbl.github.io/mycafe-rewards-calculator/',
+    domain: 'hendrikbl.github.io',
     trackLocalhost: false,
     apiHost: 'https://analytics.h-bloess.de',
   },
