@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`bg-${color}-100 dark:bg-${color}-400 rounded-2xl my-5 p-5 flex flex-col`"
+    :class="`bg-${color}-100 dark:bg-${color}-400 rounded-2xl my-5 p-5 flex flex-col shadow`"
   >
     <div class="flex">
       <svg-icon
@@ -26,8 +26,9 @@
 
 <script>
 import SvgIcon from '@jamescoyle/vue-icon'
+import { computed, defineComponent, toRefs } from '@nuxtjs/composition-api'
 
-export default {
+export default defineComponent({
   components: {
     SvgIcon,
   },
@@ -51,15 +52,20 @@ export default {
     },
   },
 
-  computed: {
-    inputName() {
-      return this.title
+  setup(props) {
+    const { title } = toRefs(props)
+
+    const inputName = computed(toKebapCase)
+
+    function toKebapCase() {
+      return title.value
         .replace(/([a-z])([A-Z])/g, '$1-$2') // get all lowercase letters that are near to uppercase ones
         .replace(/[\s_]+/g, '-') // replace all spaces and low dash
         .toLowerCase()
-    },
+    }
+    return { inputName }
   },
-}
+})
 </script>
 
 <style></style>

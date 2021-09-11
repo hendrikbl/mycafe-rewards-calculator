@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 my-2">
     <div
-      :class="`bg-${color}-100 dark:bg-${color}-400 rounded-full font-extrabold text-gray-800 flex flex-row my-1`"
+      :class="`bg-${color}-100 dark:bg-${color}-400 rounded-full font-extrabold text-gray-800 flex flex-row my-1 shadow`"
     >
       <svg-icon
         type="mdi"
@@ -15,8 +15,9 @@
 
 <script>
 import SvgIcon from '@jamescoyle/vue-icon'
+import { defineComponent } from '@nuxtjs/composition-api'
 
-export default {
+export default defineComponent({
   components: {
     SvgIcon,
   },
@@ -34,7 +35,7 @@ export default {
       default: '',
     },
   },
-}
+})
 </script>
 
 <style></style>

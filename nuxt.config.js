@@ -1,11 +1,8 @@
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
-  // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'MyCafe Rewards Calculator',
     meta: [
@@ -25,47 +22,31 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap',
       },
     ],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/css/tailwind.css',
     '@/assets/css/main.css',
     'flag-icon-css/css/flag-icon.min.css',
+    'animate.css/animate.css',
+    'katex/dist/katex.min.css',
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    {
-      src: '@/plugins/vue-gtag.js',
-      mode: 'client',
-    },
-  ],
+  plugins: [{ src: '@/plugins/katex-vue.js', ssr: false }],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/composition-api/module',
     '@nuxtjs/eslint-module',
-    // https://tailwindcss.com/docs/guides/nuxtjs
     '@nuxtjs/tailwindcss',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-    'nuxt-i18n',
-    '@nuxtjs/color-mode',
-  ],
+  modules: ['@nuxtjs/pwa', 'nuxt-i18n', '@nuxtjs/color-mode', 'vue-plausible'],
 
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       name: 'MyCafé Rewards Calculator',
@@ -82,7 +63,6 @@ export default {
     },
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   router: {
@@ -132,6 +112,12 @@ export default {
     },
   },
 
+  plausible: {
+    domain: 'hendrikbl.github.io/mycafe-rewards-calculator/',
+    trackLocalhost: false,
+    apiHost: 'https://analytics.h-bloess.de',
+  },
+
   colorMode: {
     preference: 'system', // default value of $colorMode.preference
     fallback: 'light', // fallback value if not system preference found
@@ -145,5 +131,10 @@ export default {
 
   server: {
     host: '0.0.0.0', // default: localhost
+  },
+
+  generate: {
+    // choose to suit your project
+    interval: 2000,
   },
 }

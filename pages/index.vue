@@ -1,16 +1,31 @@
 <template>
-  <div class="container mx-auto h-screen flex flex-col">
+  <div class="container mx-auto h-screen flex flex-col my-5">
     <div class="mb-auto">
-      <!-- TITLE -->
-      <h1 class="text-center text-4xl font-extrabold py-10">
-        MyCafé Rewards Calculator
-      </h1>
+      <!-- NAVBAR -->
+      <navbar></navbar>
 
       <!-- TOTALS -->
       <div
-        class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 lg:w-3/4 xl:w-2/3 mx-auto"
+        :class="`
+          grid grid-cols-1
+          sm:grid-cols-1
+          md:grid-cols-${totalCols.md}
+          lg:grid-cols-${totalCols.lg}
+          xl:grid-cols-${totalCols.xl}
+          mx-auto
+          mt-5
+        `"
       >
         <input-card
+          v-if="(mode == 1) | (mode == 3)"
+          v-model="totals.tasks"
+          color="purple"
+          :title="$t('Tasks')"
+          class="mx-5"
+          :path="icons.task"
+        />
+        <input-card
+          v-if="(mode == 2) | (mode == 3)"
           v-model="totals.trophies"
           color="yellow"
           :title="$t('Trophies')"
@@ -50,7 +65,7 @@
       </div>
 
       <!-- PLAYERS -->
-      <div v-for="player in players" :key="player.id" class="mx-5">
+      <div v-for="player in players" :key="player.id" class="mx-2">
         <div v-if="player.id < playercount">
           <player-card v-model="players[player.id]" />
         </div>
@@ -58,23 +73,10 @@
 
       <!-- ALERTS -->
       <div class="mx-5 flex-grow">
-        <div
-          v-if="playerTrophies > totals.trophies"
-          class="lg:w-3/4 xl:w-2/3 mx-auto my-2"
-        >
+        <div v-if="alertType > 0" class="lg:w-3/4 xl:w-2/3 mx-auto my-2">
           <alert-card
-            :text="$t('too_many_trophies')"
-            color="red"
-            :path="icons.alert"
-          />
-        </div>
-        <div
-          v-if="playerTrophies < totals.trophies"
-          class="lg:w-3/4 xl:w-2/3 mx-auto my-2"
-        >
-          <alert-card
-            :text="$t('not_all_trophies')"
-            color="yellow"
+            :text="alertText"
+            :color="alertType === 1 ? 'yellow' : 'red'"
             :path="icons.alert"
           />
         </div>
@@ -84,37 +86,33 @@
       </div>
     </div>
 
-    <!-- THEME TOGGLE -->
-    <div class="flex justify-center mx-auto mt-5">
-      <theme-toggle />
-    </div>
-
     <!-- FOOTER -->
     <app-footer class="mt-1" />
-    <cookie-consent v-if="showCookieConsent" @accepted="consentCookies" />
   </div>
 </template>
 
 <script>
-import { bootstrap } from 'vue-gtag'
-
 import {
   mdiAlert,
   mdiCardsDiamondOutline,
   mdiDiamondStone,
   mdiGithub,
   mdiTrophyVariantOutline,
+  mdiClipboardCheckOutline,
 } from '@mdi/js'
+import Navbar from '~/components/Navbar.vue'
 
 export default {
   name: 'Index',
+  components: { Navbar },
 
   data: () => {
     return {
       totals: {
-        trophies: null,
-        rubies: null,
-        diamonds: null,
+        trophies: 0,
+        rubies: 0,
+        diamonds: 0,
+        tasks: 0,
       },
       playercount: null,
       players: [],
@@ -122,15 +120,17 @@ export default {
         diamond: mdiDiamondStone,
         ruby: mdiCardsDiamondOutline,
         trophy: mdiTrophyVariantOutline,
+        task: mdiClipboardCheckOutline,
         alert: mdiAlert,
         github: mdiGithub,
       },
-      allowCookies: false,
-      showCookieConsent: false,
     }
   },
 
   computed: {
+    mode() {
+      return this.$store.state.mode
+    },
     trove() {
       const diamonds = this.players.reduce(function (a, b) {
         return a + b.diamonds
@@ -149,6 +149,51 @@ export default {
       return this.players.reduce(function (a, b) {
         return Number(a) + Number(b.trophies)
       }, 0)
+    },
+
+    playerTasks() {
+      return this.players.reduce(function (a, b) {
+        return Number(a) + Number(b.tasks)
+      }, 0)
+    },
+
+    totalCols() {
+      return {
+        md: this.mode === 3 ? 2 : 3,
+        lg: this.mode === 3 ? 4 : 3,
+        xl: this.mode === 3 ? 4 : 3,
+      }
+    },
+
+    alertType() {
+      if (
+        (this.playerTasks < this.totals.tasks) |
+        (this.playerTrophies < this.totals.trophies)
+      ) {
+        return 1
+      } else if (
+        (this.playerTasks > this.totals.tasks) |
+        (this.playerTrophies > this.totals.trophies)
+      ) {
+        return 2
+      } else {
+        return 0
+      }
+    },
+
+    alertText() {
+      let mode = `${this.$t('Tasks')} ${this.$t('or')} ${this.$t('Trophies')}`
+      const type =
+        this.alertType === 1 ? this.$t('not_all') : this.$t('too_many')
+
+      if (this.mode === 1) {
+        mode = this.$t('Tasks')
+      }
+      if (this.mode === 2) {
+        mode = this.$t('Trophies')
+      }
+
+      return `${type} ${mode} ${this.$t('assigned')}`
     },
   },
 
@@ -170,62 +215,97 @@ export default {
         this.calculateAll()
       },
     },
+    mode: {
+      handler(val) {
+        this.calculateAll()
+      },
+    },
   },
 
   created() {
     this.createPlayers(20)
-    if (this.getCookieConsent() !== 'true') {
-      this.showCookieConsent = true
-    }
   },
 
   methods: {
-    createPlayers() {
-      for (let i = 0; i < 20; i++) {
+    createPlayers(count) {
+      for (let i = 0; i < count; i++) {
         this.players.push({
           id: i,
           name: '',
           trophies: null,
           diamonds: 0,
           rubies: 0,
+          tasks: null,
         })
       }
     },
 
-    calculate(currency, player) {
-      return (currency / this.totals.trophies) * player.trophies
+    calculate(currency, prop, player) {
+      return (currency / this.totals[prop]) * player[prop]
+    },
+
+    calculateByProp(player, prop) {
+      if (player.id >= this.playercount) player[prop] = null
+      if (this.totals[prop] === 0 || this.totals[prop] === null) {
+        player.diamonds = 0
+        player.rubies = 0
+        return player
+      }
+
+      player.diamonds =
+        this.totals.diamonds === 0 || player.id >= this.playercount
+          ? 0
+          : Math.floor(this.calculate(this.totals.diamonds, prop, player))
+      player.rubies =
+        this.totals.rubies === 0 || player.id >= this.playercount
+          ? 0
+          : Math.floor(this.calculate(this.totals.rubies, prop, player))
+
+      return player
+    },
+
+    calculateFiftyFifty(player) {
+      const totals = {
+        diamonds: this.totals.diamonds / 2,
+        rubies: this.totals.rubies / 2,
+      }
+      if (player.id >= this.playercount) {
+        player.trophies = null
+        player.tasks = null
+      }
+
+      player.diamonds =
+        totals.diamonds === 0 || player.id >= this.playercount
+          ? 0
+          : Math.floor(
+              this.calculate(totals.diamonds, 'tasks', player) +
+                this.calculate(totals.diamonds, 'trophies', player)
+            )
+      player.rubies =
+        totals.rubies === 0 || player.id >= this.playercount
+          ? 0
+          : Math.floor(
+              this.calculate(totals.rubies, 'tasks', player) +
+                this.calculate(totals.rubies, 'trophies', player)
+            )
+
+      return player
     },
 
     calculateAll() {
-      this.players.forEach((player) => {
-        if (this.totals.trophies === 0 || this.totals.trophies === null) return
+      if (this.mode === 1 || this.mode === 2) {
+        const prop = this.mode === 1 ? 'tasks' : 'trophies'
 
-        player.diamonds =
-          this.totals.diamonds === 0 || player.id > this.playercount
-            ? 0
-            : Math.floor(this.calculate(this.totals.diamonds, player))
-        player.rubies =
-          this.totals.rubies === 0 || player.id > this.playercount
-            ? 0
-            : Math.floor(this.calculate(this.totals.rubies, player))
-      })
-    },
-
-    consentCookies(allowed) {
-      if (allowed) {
-        bootstrap().then((gtag) => {
-          this.showCookieConsent = false
-          localStorage.setItem('cookies:accepted', true)
-          location.reload()
+        this.players.forEach((player) => {
+          player = this.calculateByProp(player, prop)
         })
-      } else {
-        this.showCookieConsent = false
-        localStorage.setItem('cookies:accepted', false)
       }
-    },
 
-    getCookieConsent() {
-      return localStorage.getItem('cookies:accepted', true)
+      if (this.mode === 3) {
+        this.players.forEach((player) => {
+          player = this.calculateFiftyFifty(player)
+        })
+      }
     },
   },
 }

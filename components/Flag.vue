@@ -3,7 +3,9 @@
 </template>
 
 <script>
-export default {
+import { computed, defineComponent, toRefs } from '@nuxtjs/composition-api'
+
+export default defineComponent({
   props: {
     country: {
       type: String,
@@ -26,16 +28,22 @@ export default {
     },
   },
 
-  computed: {
-    flagClass() {
+  setup(props) {
+    const { country, background, square } = toRefs(props)
+
+    const flagClass = computed(getFlagClasses)
+
+    function getFlagClasses() {
       return {
-        [`flag-icon-background`]: this.background,
-        [`flag-icon-${this.country}`]: true,
-        [`flag-icon-squared`]: this.square,
+        [`flag-icon-background`]: background.value,
+        [`flag-icon-${country.value}`]: true,
+        [`flag-icon-squared`]: square.value,
       }
-    },
+    }
+
+    return { flagClass }
   },
-}
+})
 </script>
 
 <style></style>

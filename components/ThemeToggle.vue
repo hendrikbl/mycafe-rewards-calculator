@@ -7,64 +7,68 @@
     <svg-icon
       type="mdi"
       :path="themeIcon"
-      :class="`w-10 h-10 p-2 bg-gray-100 dark:bg-gray-600 rounded-full dark:text-yellow-500`"
+      class="w-10 h-10 p-2 dark:text-yellow-500"
     />
   </button>
 </template>
 
 <script>
 import SvgIcon from '@jamescoyle/vue-icon'
-
 import { mdiThemeLightDark, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js'
+import {
+  computed,
+  defineComponent,
+  ref,
+  useContext,
+} from '@nuxtjs/composition-api'
 
-export default {
+export default defineComponent({
   name: 'ThemeToggle',
 
   components: {
     SvgIcon,
   },
 
-  data: () => {
-    return {
-      icons: {
-        sun: mdiWeatherSunny,
-        moon: mdiWeatherNight,
-        auto: mdiThemeLightDark,
-      },
-    }
-  },
+  setup() {
+    const { $colorMode } = useContext()
 
-  computed: {
-    themeIcon() {
-      switch (this.$colorMode.preference) {
+    const icons = ref({
+      sun: mdiWeatherSunny,
+      moon: mdiWeatherNight,
+      auto: mdiThemeLightDark,
+    })
+
+    const getThemeIconByPreference = () => {
+      switch ($colorMode.preference) {
         case 'light':
-          return this.icons.sun
+          return icons.value.sun
         case 'dark':
-          return this.icons.moon
+          return icons.value.moon
         default:
-          return this.icons.auto
+          return icons.value.auto
       }
-    },
-  },
+    }
+    const themeIcon = computed(getThemeIconByPreference)
 
-  methods: {
-    toggleTheme() {
-      switch (this.$colorMode.preference) {
+    const toggleTheme = () => {
+      switch ($colorMode.preference) {
         case 'light':
-          this.$colorMode.preference = 'dark'
+          $colorMode.preference = 'dark'
           break
         case 'dark':
-          this.$colorMode.preference = 'system'
+          $colorMode.preference = 'system'
           break
         case 'system':
-          this.$colorMode.preference = 'light'
+          $colorMode.preference = 'light'
           break
         default:
-          this.$colorMode.preference = 'system'
+          $colorMode.preference = 'system'
       }
-    },
+    }
+
+    return { icons, themeIcon, toggleTheme }
   },
-}
+})
 </script>
 
 <style></style>
